@@ -1,0 +1,555 @@
+<HTML>
+    <head>
+        <link href="./style.css" rel="stylesheet" type="text/css">
+        <script src="./jquery.min.js"></script>
+    </head>
+
+    <body>
+        <div id="score">
+            <h4>CWSS Score : <span id="cwss_score"></span></h4>
+            <h4>Vector String  </h4>
+            <div>
+            TI : <span id="TI_code"></span>, <span id="TI_value"></span> / 
+            AP : <span id="AP_code"></span>, <span id="AP_value"></span> / 
+            AL : <span id="AL_code"></span>, <span id="AL_value"></span> / 
+            IC : <span id="IC_code"></span>, <span id="IC_value"></span> / 
+            FC : <span id="FC_code"></span>, <span id="FC_value"></span> / 
+            RP : <span id="RP_code"></span>, <span id="RP_value"></span> / 
+            RL : <span id="RL_code"></span>, <span id="RL_value"></span> / 
+            AV : <span id="AV_code"></span>, <span id="AV_value"></span> / 
+            AS : <span id="AS_code"></span>, <span id="AS_value"></span> / 
+            IN : <span id="IN_code"></span>, <span id="IN_value"></span> / 
+            SC : <span id="SC_code"></span>, <span id="SC_value"></span> / 
+            BI : <span id="BI_code"></span>, <span id="BI_value"></span> / 
+            DI : <span id="DI_code"></span>, <span id="DI_value"></span> / 
+            EX : <span id="EX_code"></span>, <span id="EX_value"></span> / 
+            EC : <span id="EC_code"></span>, <span id="EC_value"></span> / 
+            RE : <span id="RE_code"></span>, <span id="RE_value"></span> / 
+            P : <span id="P_code"></span>, <span id="P_value"></span> / 
+            </div>
+        </div>
+        <div id="group">
+            <div class="type-square" id="metric-base">
+                <div class="type-title">Base Finding</div>
+                <div class="type-section">
+                    <div id="TI">
+                        <span>Technical Impact (TI)</span>
+                        <div id="base_ti">
+                            <button type="button" class="button code_C" value="1">Critical</button>
+                            <button type="button" class="button code_H" value="0.9">High</button>
+                            <button type="button" class="button code_M" value="0.6">Medium</button>
+                            <button type="button" class="button code_L" value="0.3">Low</button>
+                            <button type="button" class="button code_N" value="0">None</button>
+                            <button type="button" class="button code_D" value="0.6">Default</button>
+                            <button type="button" class="button code_UK" value="0.5">Unknown</button>
+                            <button type="button" class="button code_NA" value="1">Not Applicable</button>
+                            <button type="button" class="button code_Q" value="0">Quantified</button>
+                        </div>
+                    </div>
+                    <div id="AP">
+                        <span>Acquired Privilege (AP)</span>
+                        <div id="base_ap">
+                            <button type="button" class="button code_A" value="1">Administrator</button>
+                            <button type="button" class="button code_P" value="0.9">Partially-Privileged User</button>
+                            <button type="button" class="button code_RU" value="0.7">Regular User</button>
+                            <button type="button" class="button code_L" value="0.6">Limited / Guest</button>
+                            <button type="button" class="button code_N" value="0.1">None</button>
+                            <button type="button" class="button code_D" value="0.7">Default</button>
+                            <button type="button" class="button code_UK" value="0.5">Unknown</button>
+                            <button type="button" class="button code_NA" value="1">Not Applicable</button>
+                            <button type="button" class="button code_Q" value="0">Quantified</button>
+                        </div>
+                    </div>
+                    <div id="AL">
+                        <span>Acquired Privilege Layer (AL)</span>
+                        <div id="base_al">
+                            <button type="button" class="button code_A" value="1">Application</button>
+                            <button type="button" class="button code_S" value="0.9">System</button>
+                            <button type="button" class="button code_N" value="0.7">Network</button>
+                            <button type="button" class="button code_E" value="1">Enterprise Infrastructure</button>
+                            <button type="button" class="button code_D" value="0.9">Default</button>
+                            <button type="button" class="button code_UK" value="0.5">Unknown</button>
+                            <button type="button" class="button code_NA" value="1">Not Applicable</button>
+                            <button type="button" class="button code_Q" value="0">Quantified</button>
+                        </div>
+                    </div>
+                    <div id="IC">
+                        <span>Internal Control Effectiveness (IC)</span>
+                        <div id="base_ic">
+                            <button type="button" class="button code_N" value="1">None</button>
+                            <button type="button" class="button code_L" value="0.9">Limited</button>
+                            <button type="button" class="button code_M" value="0.7">Moderate</button>
+                            <button type="button" class="button code_I" value="0.5">Indirect (Defense-in-Depth)</button>
+                            <button type="button" class="button code_B" value="0.3">Best-Available</button>
+                            <button type="button" class="button code_C" value="0">Complete</button>
+                            <button type="button" class="button code_D" value="0.6">Default</button>
+                            <button type="button" class="button code_UK" value="0.5">Unknown</button>
+                            <button type="button" class="button code_NA" value="1">Not Applicable</button>
+                            <button type="button" class="button code_Q" value="0">Quantified</button>
+                        </div>
+                    </div>
+                    <div id="FC">
+                        <span>Finding Confidence (FC)</span>
+                        <div id="base_fc">
+                            <button type="button" class="button code_T" value="1">Proven True</button>
+                            <button type="button" class="button code_LT" value="0.8">Proven Locally True</button>
+                            <button type="button" class="button code_F" value="0">Proven False</button>
+                            <button type="button" class="button code_D" value="0.8">Default</button>
+                            <button type="button" class="button code_UK" value="0.5">Unknown</button>
+                            <button type="button" class="button code_NA" value="1">Not Applicable</button>
+                            <button type="button" class="button code_Q" value="0">Quantified</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="type-square" id="metric-attack">
+                <div class="type-title">Attack Surface</div>
+                <div class="type-section">
+                    <div id="RP">
+                        <span>Required Privilege (RP)</span>
+                        <div id="attack_rp">
+                            <button type="button" class="button code_N" value="1">None</button>
+                            <button type="button" class="button code_L" value="0.9">Limited / Guest</button>
+                            <button type="button" class="button code_RU" value="0.7">Regular User</button>
+                            <button type="button" class="button code_P" value="0.6">Partially-Privileged User</button>
+                            <button type="button" class="button code_A" value="0.1">Administrator</button>
+                            <button type="button" class="button code_D" value="0.7">Default</button>
+                            <button type="button" class="button code_UK" value="0.5">Unknown</button>
+                            <button type="button" class="button code_NA" value="1">Not Applicable</button>
+                            <button type="button" class="button code_Q" value="0">Quantified</button>
+                        </div>
+                    </div>
+                    <div id="RL">
+                        <span>Required Privilege Layer (RL)</span>
+                        <div id="attack_rl">
+                            <button type="button" class="button code_A" value="1">Application</button>
+                            <button type="button" class="button code_S" value="0.9">System</button>
+                            <button type="button" class="button code_N" value="0.7">Network</button>
+                            <button type="button" class="button code_E" value="1">Enterprise Infrastructure	</button>
+                            <button type="button" class="button code_D" value="0.9">Default</button>
+                            <button type="button" class="button code_UK" value="0.5">Unknown</button>
+                            <button type="button" class="button code_NA" value="1">Not Applicable</button>
+                            <button type="button" class="button code_Q" value="0">Quantified</button>
+                        </div>
+                    </div>
+                    <div id="AV">
+                        <span>Access Vector (AV)</span>
+                        <div id="attack_av">
+                            <button type="button" class="button code_I" value="1">Internet</button>
+                            <button type="button" class="button code_R" value="0.8">Intranet</button>
+                            <button type="button" class="button code_V" value="0.8">Private Network</button>
+                            <button type="button" class="button code_A" value="0.7">Adjacent Network</button>
+                            <button type="button" class="button code_L" value="0.5">Local</button>
+                            <button type="button" class="button code_P" value="0.2">Physical</button>
+                            <button type="button" class="button code_D" value="0.75">Default</button>
+                            <button type="button" class="button code_UK" value="0.5">Unknown</button>
+                            <button type="button" class="button code_NA" value="1">Not Applicable</button>
+                            <button type="button" class="button code_Q" value="0">Quantified</button>
+                        </div>
+                    </div>
+                    <div id="AS">
+                        <span>Authentication Strength (AS)</span>
+                        <div id="attack_as">
+                            <button type="button" class="button code_S" value="0.7">Strong</button>
+                            <button type="button" class="button code_M" value="0.8">Moderate</button>
+                            <button type="button" class="button code_Y" value="0.9">Weak</button>
+                            <button type="button" class="button code_N" value="1">None</button>
+                            <button type="button" class="button code_D" value="0.85">Default</button>
+                            <button type="button" class="button code_UK" value="0.5">Unknown</button>
+                            <button type="button" class="button code_NA" value="1">Not Applicable</button>
+                            <button type="button" class="button code_Q" value="0">Quantified</button>
+                        </div>
+                    </div>
+                    <div id="IN">
+                        <span>Level of Interaction (IN)</span>
+                        <div id="attack_in">
+                            <button type="button" class="button code_A" value="1">Automated</button>
+                            <button type="button" class="button code_T" value="0.9">Typical/Limited</button>
+                            <button type="button" class="button code_M" value="0.8">Moderate</button>
+                            <button type="button" class="button code_O" value="0.3">Opportunistic</button>
+                            <button type="button" class="button code_H" value="0.1">High</button>
+                            <button type="button" class="button code_NI" value="0">No interaction</button>
+                            <button type="button" class="button code_D" value="0.55">Default</button>
+                            <button type="button" class="button code_UK" value="0.5">Unknown</button>
+                            <button type="button" class="button code_NA" value="1">Not Applicable</button>
+                            <button type="button" class="button code_Q" value="0">Quantified</button>
+                        </div>
+                    </div>
+                    <div id="SC">
+                        <span>Deployment Scope (SC)</span>
+                        <div id="attack_sc">
+                            <button type="button" class="button code_A" value="1">All</button>
+                            <button type="button" class="button code_M" value="0.9">Moderate</button>
+                            <button type="button" class="button code_R" value="0.5">Rare</button>
+                            <button type="button" class="button code_P" value="0.1">Potentially Reachable</button>
+                            <button type="button" class="button code_D" value="0.7">Default</button>
+                            <button type="button" class="button code_UK" value="0.5">Unknown</button>
+                            <button type="button" class="button code_NA" value="1">Not Applicable</button>
+                            <button type="button" class="button code_Q" value="0">Quantified</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="type-square" id="metric-env">
+                <div class="type-title">Environmental</div>
+                <div class="type-section">
+                    <div id="BI">
+                        <span>Business Impact (BI)</span>
+                        <div id="env_bi">
+                            <button type="button" class="button code_C" value="1">Critical</button>
+                            <button type="button" class="button code_H" value="0.9">High</button>
+                            <button type="button" class="button code_M" value="0.6">Medium</button>
+                            <button type="button" class="button code_L" value="0.3">Low</button>
+                            <button type="button" class="button code_N" value="0">None</button>
+                            <button type="button" class="button code_D" value="0.6">Default</button>
+                            <button type="button" class="button code_UK" value="0.5">Unknown</button>
+                            <button type="button" class="button code_NA" value="1">Not Applicable</button>
+                            <button type="button" class="button code_Q" value="0">Quantified</button>
+                        </div>
+                    </div>
+                    <div id="DI">
+                        <span>Likelihood of Discovery (DI)</span>
+                        <div id="env_di">
+                            <button type="button" class="button code_H" value="1">High</button>
+                            <button type="button" class="button code_M" value="0.6">Medium</button>
+                            <button type="button" class="button code_L" value="0.2">Low</button>
+                            <button type="button" class="button code_D" value="0.6">Default</button>
+                            <button type="button" class="button code_UK" value="0.5">Unknown</button>
+                            <button type="button" class="button code_NA" value="1">Not Applicable</button>
+                            <button type="button" class="button code_Q" value="0">Quantified</button>
+                        </div>
+                    </div>
+                    <div id="EX">
+                        <span>Likelihood of Exploit (EX)</span>
+                        <div id="env_ex">
+                           <button type="button" class="button code_H" value="1">High</button>
+                            <button type="button" class="button code_M" value="0.6">Medium</button>
+                            <button type="button" class="button code_L" value="0.2">Low</button>
+                            <button type="button" class="button code_N" value="0">None</button>
+                            <button type="button" class="button code_D" value="0.6">Default</button>
+                            <button type="button" class="button code_UK" value="0.5">Unknown</button>
+                            <button type="button" class="button code_NA" value="1">Not Applicable</button>
+                            <button type="button" class="button code_Q" value="0">Quantified</button> 
+                        </div>
+                    </div>
+                    <div id="EC">
+                        <span>External Control Effectiveness (EC)</span>
+                        <div id="env_ec">
+                            <button type="button" class="button code_N" value="1">None</button>
+                            <button type="button" class="button code_L" value="0.9">Limited</button>
+                            <button type="button" class="button code_M" value="0.7">Moderate</button>
+                            <button type="button" class="button code_I" value="0.5">Indirect (Defense-in-Depth)</button>
+                            <button type="button" class="button code_B" value="0.3">Best-Available</button>
+                            <button type="button" class="button code_C" value="0.1">Complete</button>
+                            <button type="button" class="button code_D" value="0.6">Default</button>
+                            <button type="button" class="button code_UK" value="0.5">Unknown</button>
+                            <button type="button" class="button code_NA" value="1">Not Applicable</button>
+                            <button type="button" class="button code_Q" value="0">Quantified</button>
+                        </div>
+                    </div>
+                    <div id="P">
+                        <span>Prevalence (P)</span>
+                        <div id="env_p">
+                            <button type="button" class="button code_W" value="1">Widespread</button>
+                            <button type="button" class="button code_H" value="0.9">High</button>
+                            <button type="button" class="button code_C" value="0.8">Common</button>
+                            <button type="button" class="button code_L" value="0.7">Limited</button>
+                            <button type="button" class="button code_D" value="0.85">Default</button>
+                            <button type="button" class="button code_UK" value="0.5">Unknown</button>
+                            <button type="button" class="button code_NA" value="1">Not Applicable</button>
+                            <button type="button" class="button code_QG" value="0">Quantified</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script>
+        var base_score = 0
+        var attack_score = 0
+        var env_score = 0
+
+        //base
+        var base_ti_check = false;
+        var base_ap_check = false;
+        var base_al_check = false;
+        var base_ic_check = false;
+        var base_fc_check = false;
+        let base_ti_value = 0;
+        let base_ap_value = 0;
+        let base_al_value = 0;
+        let base_ic_value = 0;
+        let base_fc_value = 0;
+        let base_fti_value = 0;
+        let base_ti_vector = "";
+        let base_ap_vector = "";
+        let base_al_vector = "";
+        let base_ic_vector = "";
+        let base_fc_vector = "";
+
+
+        //attack
+        var attack_rp_check = false;
+        var attack_rl_check = false;
+        var attack_av_check = false;
+        var attack_as_check = false;
+        var attack_in_check = false;
+        var attack_sc_check = false;
+        let attack_rp_value = 0;
+        let attack_rl_value = 0;
+        let attack_av_value = 0;
+        let attack_as_value = 0;
+        let attack_in_value = 0;
+        let attack_sc_value = 0;
+        let attack_rp_vector = "";
+        let attack_rl_vector = "";
+        let attack_av_vector = "";
+        let attack_as_vector = "";
+        let attack_in_vector = "";
+        let attack_sc_vector = "";
+
+
+
+        //env
+        var env_bi_check = false;
+        var env_di_check = false;
+        var env_ex_check = false;
+        var env_ec_check = false;
+        var env_p_check = false;
+        let env_bi_value = 0;
+        let env_di_value = 0;
+        let env_ex_value = 0;
+        let env_ec_value = 0;
+        let env_p_value = 0;
+        let env_fbi_value = 0;
+        let env_bi_vector = "";
+        let env_di_vector = "";
+        let env_ex_vector = "";
+        let env_ec_vector = "";
+        let env_p_vector = "";
+        
+
+
+        //base 점수 산출
+        $("[id^='base'] > button").click(function() {
+            //metric 값
+            $(this).parent().find("button").removeClass("active");
+            $(this).addClass("active");
+            let metric = $(this).parent().attr("id");
+            let value = Number(($(this).val()))
+            let vector = getClassVector(this);
+            let id = "";
+
+          
+            switch(metric) {
+                case "base_ti":
+                    id = "TI";
+                    base_ti_check = true;
+                    base_ti_value = value;
+                    base_ti_vector = vector; 
+                    break;
+                case "base_ap":
+                    id = "AP";
+                    base_ap_check = true;
+                    base_ap_value = value;
+                    base_ap_vector = vector; 
+                    break;
+                case "base_al":
+                    id = "AL";
+                    base_al_check = true;
+                    base_al_value = value
+                    base_al_vector = vector
+                    break;
+                case "base_ic":
+                    id = "IC";
+                    base_ic_check = true;
+                    base_ic_value = value
+                    base_ic_vector = vector
+                    break;
+                case "base_fc":
+                    id = "FC";
+                    base_fc_check = true;
+                    base_fc_value = value
+                    base_fc_vector = vector 
+                    break;
+            }
+
+            $("#"+id+"_code").text(vector);
+            $("#"+id+"_value").text(value);
+
+            if (base_ti_value != 0)
+            {
+                base_fti_value = 1;
+            }
+            
+            base_score = ((10 * base_ti_value + 5 * (base_ap_value + base_al_value) + 5 * base_fc_value) * base_fti_value * base_ic_value) *4.0;
+            calcScore();
+        });
+
+        $("[id^='attack'] > button").click(function() {
+            //metric 값
+            $(this).parent().find("button").removeClass("active");
+            $(this).addClass("active");
+            let metric = $(this).parent().attr("id");
+            let value = Number(($(this).val()))
+            let vector = getClassVector(this);
+            let id = "";
+
+           switch(metric) {
+                case "attack_rp":
+                    id = "RP";
+                    attack_rp_check = true;
+                    attack_rp_value = value;
+                    attack_rp_vector = vector;
+                    break;
+                case "attack_rl":
+                    id = "RL";
+                    attack_rl_check = true;
+                    attack_rl_value = value;
+                    attack_rl_vector = vector;
+                    break;
+                case "attack_av":
+                    id = "AV";
+                    attack_av_check = true;
+                    attack_av_value = value;
+                    attack_av_vector = vector;
+                    break;
+                case "attack_as":
+                    id = "AS";
+                    attack_as_check = true;
+                    attack_as_value = value;
+                    attack_as_vector = vector;
+                    break;
+                case "attack_in":
+                    id = "IN";
+                    attack_in_check = true;
+                    attack_in_value = value;
+                    attack_in_vector = vector;
+                    break;
+                case "attack_sc":
+                    id = "SC";
+                    attack_sc_check = true;
+                    attack_sc_value = value;
+                    attack_sc_vector = vector;
+                    break;
+            }
+
+            $("#"+id+"_code").text(vector);
+            $("#"+id+"_value").text(value);
+
+
+            attack_score = ((20 * (attack_rp_value + attack_rl_value + attack_av_value))
+             + 20 * attack_sc_value + 15 * attack_in_value + 5 * attack_as_value) / 100.0;
+            calcScore();
+        });
+
+        //env 점수 산출
+        $("[id^='env'] > button").click(function() {
+            $("[id^='attack'] > button").removeClass("active");
+            $(this).addClass("active");
+            //metric 값
+            let metric = $(this).parent().attr("id");
+            let value = Number(($(this).val()))
+            let vector = getClassVector(this);
+            let id = "";
+
+          
+            switch(metric) {
+                case "env_bi":
+                    id = "BI";
+                    env_bi_check = true;
+                    env_bi_value = value;
+                    env_bi_vector = vector;
+                    break;
+                case "env_di":
+                    id = "DI";
+                    env_di_check = true;
+                    env_di_value = value;
+                    env_di_vector = vector;
+                    break;
+                case "env_ec":
+                    id = "EC";
+                    env_ec_check = true;
+                    env_ec_value = value;
+                    env_ec_vector = vector;
+                    break;
+                case "env_ex":
+                    id = "EX";
+                    env_ex_check = true;
+                    env_ex_value = value;
+                    env_ex_vector = vector;
+                    break;
+                case "env_p":
+                    id = "BI";
+                    env_p_check = true;
+                    env_p_value = value;
+                    env_p_vector = vector; 
+                    break;
+                
+            }
+
+            $("#"+id+"_code").text(vector);
+            $("#"+id+"_value").text(value);
+
+            if (env_bi_value != 0)
+            {
+                env_fbi_value = 1;
+            }
+            
+            env_score = ((10 * env_bi_value + 3 * env_di_value + 4 * env_ex_value +  3 * env_p_value)*(env_fbi_value * env_ec_value)) / 20.0;
+            calcScore();
+        });
+
+        function calcScore()
+        {
+            let cwss_score = (base_score * attack_score * env_score).toFixed(1);
+
+            $("#cwss_score").text(cwss_score);
+
+            
+            let base_ap_vector = "";
+            let base_al_vector = "";
+            let base_ic_vector = "";
+            let base_fc_vector = "";
+            let attack_rp_vector = "";
+            let attack_rl_vector = "";
+            let attack_av_vector = "";
+            let attack_as_vector = "";
+            let attack_in_vector = "";
+            let attack_sc_vector = "";
+            let env_bi_vector = "";
+            let env_di_vector = "";
+            let env_ex_vector = "";
+            let env_ec_vector = "";
+            let env_p_vector = "";
+    
+        }
+
+        function getVectorString(vec_string)
+        {
+            let vector = vec_string.replace("code_", ""); 
+            return vector;
+        }
+
+        function getClassVector(element)
+        {
+            var class_list = $(element).attr("class").split(/\s+/);
+            class_list.remove("button");
+            class_list.remove("active");
+            return getVectorString(class_list[0]);
+        }
+
+        Array.prototype.remove = function() {
+            var what, a = arguments, L = a.length, ax;
+            while (L && this.length) {
+                what = a[--L];
+                while ((ax = this.indexOf(what)) !== -1) {
+                    this.splice(ax, 1);
+                }
+            }
+            return this;
+        };
+
+
+    </script>
+</HTML>

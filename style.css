@@ -1,0 +1,40 @@
+#score {
+    margin: 30px 20px;
+}
+.type-square {
+    margin: 30px 20px;
+    height:300px;
+    border: 1px black solid;
+}
+
+.type-title {
+    margin: 10px 0px;
+}
+
+.type-section {
+    height : 100%;
+    border-top: 1px black solid;
+}
+.type-section > div {
+    width:45%;
+    display:inline-block;
+}
+
+.button {
+    background:#cccccc;
+    color: #666666;
+    border: 1px solid #999999;
+    display: inline-block;
+    margin: 3px;
+    padding: 2px 5px;
+    border: 0;
+    cursor: pointer;
+    font-size: 90%;
+    border-radius: 5px;
+}
+
+.active {
+    background: green!important;
+    border: 1px solid green!important;
+    color: #ffffff!important;
+}

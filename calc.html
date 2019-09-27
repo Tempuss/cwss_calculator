@@ -1,0 +1,38 @@
+<HTML>
+    <head>
+        <link href="./style.css" rel="stylesheet" type="text/css">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="group">
+            <metric-type
+            v-for="item in group"
+            v-bind:type="item"
+            v-bind:id="'metric-'+item.id"
+            >
+            </metric-type>
+          </div>
+    </body>
+    <script>
+Vue.component('metric-type', {
+  props: ['type'],
+  template: '<div class="type-square"><div class="type-title">{{ type.text }}</div><div class="type-section" ><div v-for="metric in metrics" ><span></span></div></div></div>'
+})
+
+
+var group = new Vue({
+  el: '#group',
+  data: {
+    group: [
+      { id: "base", text: 'Base Finding', metrics:[{id:"TI", text: 'Technical Impact (TI)'}] },
+      { id: "attack", text: 'Attack Surface', metrics:[{id:"TI", text: 'Technical Impact (TI)'}]  },
+      { id: "env", text: 'Environmental', metrics:[{id:"TI", text: 'Technical Impact (TI)'}]  }
+    ]
+  }
+}) 
+
+
+ 
+             
+    </script>
+</HTML>
